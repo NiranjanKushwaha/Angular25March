@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data binding</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myPerson">
+    <h1>My Name is: {{Fname | uppercase}} {{Lname | lowercase}} </h1>
+</div>
+<p>The names below are sorted on the basis of Their salary</p>
+
+<div ng-controller="salaryCtrl">
+
+<!-- <button ng-repeat=" person in names | orderBy:'salary'">descending</button> -->
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+    <tr ng-repeat="person in names | orderBy:'salary'">
+       <td>{{person.name}}</td>
+       <td>{{person.salary | currency:"Rs."}}</td>
+    </tr>
+</table>
+</div>
+
+
+<script>
+    let app=angular.module("myApp",[]);
+    app.controller('myPerson',function($scope){
+        $scope.Fname="Niranjan";
+        $scope.Lname="Kumar Kushawaha";
+    })
+
+    app.controller("salaryCtrl",($scope)=>{
+        $scope.names = [
+        {
+            name:"prateek sir",
+            salary:"1000000"
+        },
+        { 
+            name:"Nikhil sir",
+            salary:1500000,
+        },
+        {
+            name:"Nishant sir",
+            salary:1100000
+        },
+        {
+            name:"Shushant sir",
+            salary:800000
+        },
+        {
+            name:"Niranjan Kushwaha",
+            salary:700000
+        }];
+    
+    });
+
+</script>
+    </body>
+    </html>

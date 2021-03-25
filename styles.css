@@ -1,0 +1,42 @@
+*{
+    margin: 0%;
+    padding:0px;
+    box-sizing: border-box;
+    max-width: 100%;
+    text-align: center;
+    background-color:gainsboro;
+    color:greenyellow;
+}
+
+body{
+    margin-top: 20px;
+}
+h1,h2,h3,h4,h5{
+    color:red;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 :hover{
+    cursor: pointer;
+    color:brown;
+}
+
+p{
+    color:darkorange;
+}
+
+button{
+    color:red;
+    font-size: 32px;
+}
+
+table,td,th{
+    font-size: 32px;
+    color:indigo;
+    background-color: lawngreen;
+    margin: 0% auto;
+}

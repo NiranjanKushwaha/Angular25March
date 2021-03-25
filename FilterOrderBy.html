@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sorting</title>
+<link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myCtrl">
+<table border="1">
+    <tr>
+        <th><button ng-click="sortBy('name')">Name</button></th>
+        <th><button ng-click="sortBy('country')">Country</button></th>
+    </tr>
+    <tr ng-repeat="el in arr | orderBy:myOrder">
+        <td>{{el.name}}</td>
+        <td>{{el.country}}</td>
+    </tr>
+
+</table>
+
+</div>
+</body>
+<script>
+    angular.module("myApp",[]).controller("myCtrl",($scope)=>{
+        $scope.arr=[
+            {name:'Jani',country:'Norway'},
+            {name:'Carl',country:'Sweden'},
+            {name:'Margareth',country:'England'},
+            {name:'Hege',country:'Norway'},
+            {name:'Joe',country:'Denmark'},
+            {name:'Gustav',country:'Swede'},
+            {name:'Birgit',country:'Denmark'},
+            {name:'Mary',country:'England'},
+            {name:'Kai',country:'Norway'}
+        ];
+        $scope.sortBy=function(x){
+            $scope.myOrder=x;
+        }
+    })
+</script>
+
+    </html>
